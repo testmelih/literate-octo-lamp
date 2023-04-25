@@ -1,83 +1,53 @@
-/* Reset some default styles for consistency */
-body, html {
-  margin: 0;
-  padding: 0;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f8f8;
 }
 
-/* Container for the toggle and ring circle */
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+    color: #555;
 }
 
-/* Ring container to position the ring circle */
-.ringContainer {
-  position: relative;
+.ring-container {
+    width: 90vw;
+    max-width: 400px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Ring circle */
-.ringCircle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+.ring-circle {
+    width: 100%;
+    padding-bottom: 100%; /* Creates a square div with 1:1 aspect ratio */
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Add this property */
+    transform: translateZ(0); /* Add this property */
+    backface-visibility: hidden; /* Add this property */
 }
 
-/* Inner circle */
-.innerCircle {
-  border-radius: 50%;
-  background-color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.inner-circle {
+    width: 70%;
+    height: 70%;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Toggle switch */
-.toggle {
-  width: 60px;
-  height: 34px;
-  background-color: #ddd;
-  border-radius: 17px;
-  position: relative;
-  cursor: pointer;
+#sizeRange {
+    width: 80%;
+    margin-bottom: 20px;
 }
 
-/* Toggle switch handle */
-.handle {
-  width: 30px;
-  height: 30px;
-  background-color: #777;
-  border-radius: 15px;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.2s ease;
-}
-
-/* Toggle switch text labels */
-.text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  color: #777;
-  width: 100%;
-  text-align: center;
-}
-
-/* Toggle switch on state */
-.toggle.on .handle {
-  transform: translateX(26px);
+#ringSize {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
 }
