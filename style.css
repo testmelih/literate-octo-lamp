@@ -1,56 +1,47 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f8f8f8;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-h1 {
-    color: #555;
-}
-
-.ring-container {
-    width: 90vw;
-    max-width: 400px;
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.ring-circle {
-    width: 100%;
-    padding-bottom: 100%;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transform: translateZ(0);
-    backface-visibility: hidden;
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .inner-circle {
-    width: 70%;
-    height: 70%;
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    box-sizing: border-box;
-    border: 2px solid #ddd;
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
-#sizeRange {
-    width: 80%;
-    margin-bottom: 20px;
+.hidden {
+  display: none;
 }
 
-#ringSize {
-    font-size: 24px;
-    font-weight: bold;
-    color: #555;
+.controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 5px;
+}
+
+label {
+  display: inline-block;
+  margin-right: 5px;
 }
