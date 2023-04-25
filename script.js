@@ -5,6 +5,13 @@ var innerCircle = document.getElementById("innerCircle");
 // Get the size range input element
 var sizeRange = document.getElementById("sizeRange");
 
+// Store the initial size of the inner circle
+var initialSize = parseInt(sizeRange.value);
+
+// Set the initial size of the inner circle
+innerCircle.style.width = initialSize + "%";
+innerCircle.style.height = initialSize + "%";
+
 // Add event listener for when the size range changes
 sizeRange.addEventListener("input", function(event) {
     // Get the value of the size range
@@ -25,4 +32,8 @@ ringCircle.addEventListener("click", function(event) {
     
     // Update the ring size text
     document.getElementById("ringSize").textContent = "Ring Size: " + ringSize;
+    
+    // Reset the inner circle size to the initial size
+    innerCircle.style.width = initialSize + "%";
+    innerCircle.style.height = initialSize + "%";
 });
