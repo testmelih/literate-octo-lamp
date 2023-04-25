@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ring Size Checker</title>
+    <style>
+      /* Styles from earlier */
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ring Size Checker</h1>
+    </header>
+    <section id="circles">
+      <div class="circle" style="width: 15px;">1</div>
+      <div class="circle" style="width: 16mm;">2</div>
+      <div class="circle" style="width: 17mm;">3</div>
+      <div class="circle" style="width: 18mm;">4</div>
+      <div class="circle" style="width: 19mm;">5</div>
+      <div class="circle" style="width: 20mm;">6</div>
+      <div class="circle" style="width: 21mm;">7</div>
+      <div class="circle" style="width: 22mm;">8</div>
+      <div class="circle" style="width: 23mm;">9</div>
+      <div class="circle" style="width: 24mm;">10</div>
+    </section>
+    <img id="ring-image" src="https://i.imgur.com/yXoQ4sB.png" alt="Ring image">
+    <section id="overlay">
+      <div>
+        <p>Please enter the diameter of your ring in millimeters:</p>
+        <input type="number" id="diameter-input" min="1" max="30" step="0.1" placeholder="Diameter (mm)">
+        <button id="calculate-button">Calculate Ring Size</button>
+      </div>
+    </section>
+    <script>
+      const circles = document.querySelectorAll('.circle');
+      const overlay = document.getElementById('overlay');
+      const diameterInput = document.getElementById('diameter-input');
+      const calculateButton = document.getElementById('calculate-button');
+
+      circles.forEach((circle, index) => {
+        circle.addEventListener('click', () => {
+          const diameter = parseFloat(circle.style.width);
+          diameterInput.value = diameter;
+          overlay.style.display = 'flex';
+        });
+      });
+
+      calculateButton.addEventListener('click', () => {
+        const diameter = diameterInput.value;
+        const circumference = Math.PI * diameter;
+        const ringSize = circumference.toFixed(2);
+        alert(`Your ring size is ${ringSize}`);
+        overlay.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
