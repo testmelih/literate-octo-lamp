@@ -13,33 +13,34 @@ h1 {
     max-width: 400px;
     margin: 50px auto;
     display: flex;
-    justify-content: center; /* Updated: Use justify-content: center; instead of flex-direction: column; */
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Updated: Add flex-wrap: wrap; */
+    flex-wrap: wrap;
 }
 
 .ring-circle {
     width: 100%;
-    padding-bottom: 100%; /* Creates a square div with 1:1 aspect ratio */
+    padding-bottom: 100%;
     background-color: #ddd;
     border-radius: 50%;
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
-    z-index: 1; /* Add this property */
-    transform: translateZ(0); /* Add this property */
-    backface-visibility: hidden; /* Add this property */
+    z-index: 1;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .inner-circle {
-    width: 70%;
-    height: 70%;
+    width: 100%; /* Update: Change width to 100% */
+    height: 100%; /* Update: Change height to 100% */
     background-color: black;
     border-radius: 50%;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0; /* Update: Change top to 0 */
+    left: 0; /* Update: Change left to 0 */
     transform: translate(-50%, -50%);
+    /* Update: Remove top, left, and transform properties */
 }
 
 #sizeRange {
