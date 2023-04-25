@@ -8,15 +8,39 @@ h1 {
   color: #555;
 }
 
-.circle {
-  width: 300px;
-  height: 300px;
-  background-color: #ddd;
-  border-radius: 50%;
+.ring-container {
+  width: 90vw;
+  max-width: 400px;
   margin: 50px auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+.ring-circle {
+  width: 100%;
+  padding-bottom: 100%; /* Creates a square div with 1:1 aspect ratio */
+  background-color: #ddd;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-circle {
+  width: 70%;
+  height: 70%;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#sizeRange {
+  width: 80%;
+  margin-bottom: 20px;
 }
 
 #ringSize {

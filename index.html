@@ -6,8 +6,12 @@
 </head>
 <body>
     <h1>Ring Size Checker</h1>
-    <div class="circle" id="ringCircle">
-        <p id="ringSize">-</p>
+    <div class="ring-container">
+        <div class="ring-circle" id="ringCircle">
+            <div class="inner-circle" id="innerCircle"></div>
+        </div>
+        <input type="range" id="sizeRange" min="1" max="10" value="5">
+        <p id="ringSize">Ring Size: 5</p>
     </div>
     <script src="script.js"></script>
 </body>
