@@ -1,50 +1,83 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f8f8f8;
+/* Reset some default styles for consistency */
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  color: #555;
-}
-
-.ring-container {
-  width: 90vw;
-  max-width: 400px;
-  margin: 50px auto;
+/* Container for the toggle and ring circle */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.ring-circle {
-  width: 100%;
-  padding-bottom: 100%; /* Creates a square div with 1:1 aspect ratio */
-  background-color: #ddd;
-  border-radius: 50%;
-  margin-bottom: 20px;
+/* Ring container to position the ring circle */
+.ringContainer {
   position: relative;
-  overflow: hidden;
 }
 
-.inner-circle {
-  width: 70%;
-  height: 70%;
-  background-color: black;
+/* Ring circle */
+.ringCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Inner circle */
+.innerCircle {
+  border-radius: 50%;
+  background-color: black;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-#sizeRange {
-  width: 80%;
-  margin-bottom: 20px;
+/* Toggle switch */
+.toggle {
+  width: 60px;
+  height: 34px;
+  background-color: #ddd;
+  border-radius: 17px;
+  position: relative;
+  cursor: pointer;
 }
 
-#ringSize {
-  font-size: 24px;
-  font-weight: bold;
-  color: #555;
+/* Toggle switch handle */
+.handle {
+  width: 30px;
+  height: 30px;
+  background-color: #777;
+  border-radius: 15px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s ease;
+}
+
+/* Toggle switch text labels */
+.text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #777;
+  width: 100%;
+  text-align: center;
+}
+
+/* Toggle switch on state */
+.toggle.on .handle {
+  transform: translateX(26px);
 }
