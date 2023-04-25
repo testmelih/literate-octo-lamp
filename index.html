@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ring Size Checker</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Ring Size Toggle</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Ring Size Checker</h1>
-    <div class="ring-container">
-        <div class="ring-circle" id="ringCircle">
-            <div class="inner-circle" id="innerCircle"></div>
-        </div>
-        <input type="range" id="sizeRange" min="1" max="10" value="5">
-        <p id="ringSize">Ring Size: 5</p>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <div class="inner-circle"></div>
+  </div>
+  <div class="controls">
+    <label for="sizeRange">Ring Size: <span id="ringSize">50</span>%</label>
+    <input type="range" id="sizeRange" min="0" max="100" value="50">
+    <label for="toggleSwitch">Toggle: </label>
+    <input type="checkbox" id="toggleSwitch">
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
