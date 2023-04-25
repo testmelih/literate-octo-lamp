@@ -30,15 +30,16 @@ h1 {
 }
 
 .inner-circle {
-    width: 70%; /* Update: Change width to 70% */
-    height: 70%; /* Update: Change height to 70% */
+    width: 70%;
+    height: 70%;
     background-color: black;
     border-radius: 50%;
     position: absolute;
-    top: 50%; /* Update: Change top to 50% */
-    left: 50%; /* Update: Change left to 50% */
-    transform: translate(-50%, -50%);
-    /* Update: Remove top, left, and transform properties */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     box-sizing: border-box;
     border: 2px solid #ddd;
 }
