@@ -1,39 +1,17 @@
-// Get the ring circle and inner circle elements
-var ringCircle = document.getElementById("ringCircle");
-var innerCircle = document.getElementById("innerCircle");
+// Get DOM elements
+const sizeRange = document.getElementById('sizeRange');
+const ringSize = document.getElementById('ringSize');
+const innerCircle = document.querySelector('.inner-circle');
 
-// Get the size range input element
-var sizeRange = document.getElementById("sizeRange");
-
-// Store the initial size of the inner circle
-var initialSize = parseInt(sizeRange.value);
-
-// Set the initial size of the inner circle
-innerCircle.style.width = initialSize + "%";
-innerCircle.style.height = initialSize + "%";
-
-// Add event listener for when the size range changes
-sizeRange.addEventListener("input", function(event) {
-    // Get the value of the size range
-    var sizeValue = event.target.value;
-    
-    // Update the inner circle size based on the size range value
-    innerCircle.style.width = sizeValue + "%";
-    innerCircle.style.height = sizeValue + "%";
-    
-    // Update the ring size text
-    document.getElementById("ringSize").textContent = "Ring Size: " + sizeValue;
+// Add event listener for input range change
+sizeRange.addEventListener('input', function () {
+  const size = this.value;
+  ringSize.textContent = size;
+  innerCircle.style.width = `${size}%`;
+  innerCircle.style.height = `${size}%`;
 });
 
-// Add event listener for when the ring circle is clicked
-ringCircle.addEventListener("click", function(event) {
-    // Get the size of the ring from the size range
-    var ringSize = sizeRange.value;
-    
-    // Update the ring size text
-    document.getElementById("ringSize").textContent = "Ring Size: " + ringSize;
-    
-    // Reset the inner circle size to the initial size
-    innerCircle.style.width = initialSize + "%";
-    innerCircle.style.height = initialSize + "%";
+// Add event listener for toggle switch change
+document.getElementById('toggleSwitch').addEventListener('change', function () {
+  innerCircle.classList.toggle('hidden');
 });
