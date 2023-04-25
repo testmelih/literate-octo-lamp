@@ -1,64 +1,22 @@
-// Select the circles
-const circles = document.querySelectorAll('.circle');
+// Get the ring circle element
+var ringCircle = document.getElementById("ringCircle");
 
-// Select the ring image
-const ringImage = document.getElementById('ring-image');
-
-// Select the overlay
-const overlay = document.getElementById('overlay');
-
-// Select the diameter input
-const diameterInput = document.getElementById('diameter-input');
-
-// Select the calculate button
-const calculateButton = document.getElementById('calculate-button');
-
-// Add an event listener to each circle
-circles.forEach(circle => {
-  circle.addEventListener('click', () => {
-    // Add a class of "active" to the clicked circle
-    circle.classList.add('active');
-
-    // Remove the "active" class from all other circles
-    circles.forEach(otherCircle => {
-      if (otherCircle !== circle) {
-        otherCircle.classList.remove('active');
-      }
-    });
-
-    // Update the ring image source to match the selected size
-    const size = circle.dataset.size;
-    ringImage.src = `images/ring-${size}.png`;
-  });
+// Add event listener for when the ring circle is clicked
+ringCircle.addEventListener("click", function(event) {
+    // Get the size of the ring circle
+    var ringSize = getRingSize(event.offsetX, event.offsetY);
+    
+    // Update the ring size text
+    document.getElementById("ringSize").textContent = "Ring Size: " + ringSize;
 });
 
-// Add an event listener to the ring image
-ringImage.addEventListener('click', () => {
-  // Show the overlay
-  overlay.style.display = 'flex';
-});
-
-// Add an event listener to the calculate button
-calculateButton.addEventListener('click', () => {
-  // Get the diameter input value
-  const diameter = diameterInput.value;
-
-  // Calculate the circumference using the formula C = πd
-  const circumference = Math.PI * diameter;
-
-  // Round the circumference to 2 decimal places
-  const roundedCircumference = circumference.toFixed(2);
-
-  // Update the overlay content with the calculated circumference
-  const overlayContent = `
-    <p>The circumference of your ring is:</p>
-    <p>${roundedCircumference} mm</p>
-  `;
-  overlay.querySelector('div').innerHTML = overlayContent;
-});
-
-// Add an event listener to the overlay
-overlay.addEventListener('click', () => {
-  // Hide the overlay
-  overlay.style.display = 'none';
-});
+// Function to calculate the ring size based on the clicked position
+function getRingSize(x, y) {
+    // Calculate the distance from the center of the circle
+    var distance = Math.sqrt(Math.pow(x - 150, 2) + Math.pow(y - 150, 2));
+    
+    // Adjust the distance to match the desired ring size range
+    var ringSize = 1 + Math.floor(distance / 20);
+    
+    return ringSize;
+}
